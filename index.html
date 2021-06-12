@@ -354,17 +354,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="agileits_agile_about">
 										<h3>Contact Me</h3>
 										<div class="agileits_agile_about_mail">
-											<form action="#" method="post">
+											<form id="submit-form" action="">
 												<div class="col-md-6 agileits_agile_about_mail_left">
-													<input type="text" name="Name" placeholder="Name" required="">
-													<input type="text" name="Subject" placeholder="Subject" required="">
+													<input type="text" name="name" placeholder="Name" required="">
+													<input type="text" name="subject" placeholder="Subject" required="">
 												</div>
 												<div class="col-md-6 agileits_agile_about_mail_left">
-													<input type="email" name="Email" placeholder="Email" required="">
-													<input type="text" name="Phone" placeholder="Phone" required="">
+													<input type="email" name="email" placeholder="Email" required="">
+													<input type="text" name="mobile" placeholder="Phone" required="">
 												</div>
 												<div class="clearfix"> </div>
-												<textarea name="Message" placeholder="Message..." required=""></textarea>
+												<textarea name="message" placeholder="Message..." required=""></textarea>
 												<input type="submit" value="Submit">
 											</form>
 										</div>
@@ -418,5 +418,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- for bootstrap working -->
 <script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
+<script>
+    $("#submit-form").submit((e) => {
+      e.preventDefault()
+      $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbylwID-roVRH3SOH084f5EF3MXwNaNi4WFx_sGihkmTMmhAJeU/exec",
+        data: $("#submit-form").serialize(),
+        method: "post",
+        success: function (response) {
+          alert("Form submitted successfully")
+          window.location.reload()
+          //window.location.href="https://google.com"
+        },
+        error: function (err) {
+          alert("Something Error")
+
+        }
+      })
+    })
+  </script>
 </body>
 </html>
